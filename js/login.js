@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
             showAlertEmailIncorrect()
         } else { 
             if (password.value === "" )
-            showAlertPasswordIncorrect() 
+            showAlertPasswordIncorrect()  
         } 
     })
 })
