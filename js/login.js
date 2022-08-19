@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", ()=> {
         } else { 
             if (password.value === "" )
             showAlertPasswordIncorrect()  
+            else {
+                window.location.href = "display.html";
+            }
         } 
     })
 })
