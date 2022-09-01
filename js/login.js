@@ -20,7 +20,10 @@ document.addEventListener("DOMContentLoaded", ()=> {
             if (password.value === "" )
             showAlertPasswordIncorrect()  
             else {
-                window.location.href = "display.html";
+                document.getElementById("button").addEventListener("click", function() {
+                    localStorage.setItem("Usuario", email.value);
+                    window.location.href = "display.html";
+                });
             }
         } 
     })
