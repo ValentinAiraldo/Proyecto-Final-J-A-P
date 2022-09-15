@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
-var Usuario =  localStorage.getItem("Usuario")
+/*var Usuario =  localStorage.getItem("Usuario")
 
 function getHTML(){
    return `<li class="nav-item">
@@ -25,4 +25,4 @@ document.addEventListener("DOMContentLoaded", async function(){
     const navbar = document.querySelector("#navBar")
     
     navbar.innerHTML += getHTML();  
-})
+})*/

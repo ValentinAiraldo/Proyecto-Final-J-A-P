@@ -39,3 +39,17 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+var Usuario =  localStorage.getItem("Usuario")
+
+function getHTML(){
+   return `<li class="nav-item">
+   <a class="nav-link" href="">${Usuario}</a>
+ </li>`
+}
+
+document.addEventListener("DOMContentLoaded", async function(){
+    const navbar = document.querySelector("#navBar")
+    
+    navbar.innerHTML += getHTML();  
+})
