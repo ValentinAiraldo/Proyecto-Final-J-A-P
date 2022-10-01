@@ -43,13 +43,35 @@ let getJSONData = function(url){
 var Usuario =  localStorage.getItem("Usuario")
 
 function getHTML(){
-   return `<li class="nav-item">
-   <a class="nav-link" href="">${Usuario}</a>
- </li>`
+   return `
+   <div class="dropdown" id="User">
+   <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+     ${Usuario}
+   </button>
+ 
+   <ul class="dropdown-menu">
+     <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+     <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+     <li onclick="deleteUsername()"><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+   </ul>
+ </div>
+ `
 }
 
 document.addEventListener("DOMContentLoaded", async function(){
-    const navbar = document.querySelector("#navBar")
-    
-    navbar.innerHTML += getHTML();  
-})
+  const navbar = document.querySelector("#navBar")
+  if(Usuario){ 
+    navbar.innerHTML += getHTML(); 
+  }
+    noUsername()  
+  })
+
+function deleteUsername(){
+  localStorage.removeItem("Usuario")
+}
+
+function noUsername(){
+  if (!Usuario){
+    location.href = "index.html";
+  }
+}

@@ -71,6 +71,19 @@ function showImages(){
    document.getElementById("images").innerHTML = htmlContentToAppend
 }
 
+function relatedProducts(){
+   htmlContentToAppend = "";
+   for(i=0; i < productInfo.relatedProducts.length; i++){
+      let rp = productInfo.relatedProducts[i]
+      htmlContentToAppend += 
+      `<div class="col-2" product-id="${rp.id}">
+                <img src="${rp.image}" class="img-fluid mb-1" width="200" height="200">
+                <p> ${rp.name} </p> 
+                </div>`;
+   }
+   document.getElementById("related-products").innerHTML = htmlContentToAppend;
+}
+
 function showComments(){
    htmlContentToAppend = "";
    for(i = 0; i < commentsInfo.length; i++){
@@ -200,7 +213,9 @@ document.addEventListener("DOMContentLoaded", function(e){
           productInfo = resultObj.data;
           showProduct()
           showImages()
+          relatedProducts()
          }
+         //console.log(productInfo)
    }) 
    getJSONData(comments_URL).then(function (resultObj){
       if(resultObj.status === "ok"){
