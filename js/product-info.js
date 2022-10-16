@@ -18,13 +18,21 @@ let productInfo = [];
 
 let commentsInfo = [];
 
+function cartAccess(){
+   location.href = "cart.html"
+}
+
 function showProduct() {
     htmlContentToAppend = ""; 
     let  producto = productInfo;
     htmlContentToAppend +=
         `<div class="row my-3 mx-1 d-flex" id= "${producto.id}">
-           <div class="row">
-               <h3>${producto.name}</h3> 
+           <div class="row justify-content-between p-2">
+               <h3 class="col-6">${producto.name}</h3> 
+               <button onclick="cartAccess()" class="btn btn-primary col-2 flex-row-reverse">Comprar</button>
+           </div>
+           <div class="row col-3">
+           Volver a la página anterior
            </div>
            <hr>
            <div class="row">
