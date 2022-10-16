@@ -44,10 +44,10 @@ var Usuario =  localStorage.getItem("Usuario")
 
 function getHTML(){
    return `
-   <div class="dropdown" id="User">
-   <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+   <div class="nav-item dropdown" id="User">
+   <a role="button" class="nav-link bg-dark dropdown-toggle" data-bs-toggle="dropdown">
      ${Usuario}
-   </button>
+   </a>
  
    <ul class="dropdown-menu">
      <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
