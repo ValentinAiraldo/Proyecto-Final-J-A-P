@@ -40,57 +40,129 @@
 
       </div>
       <hr>
-      <div id="deliveryInfo">
+      <form id="deliveryInfo" class="needs-validation" novalidate>
         <div class="row">
             <h4>Tipo de envío</h4>
           <div class="row">
-            <p>
-              <input type="radio" value="Premium 2 a 5 días(15%)"> Premium 2 a 5 días(15%) 
+            <div>
+              <label class="checkbox-inline">
+                <input onclick="multiplicar()"  type="radio" name="envio" value="0.15" id="premium" required> Premium 2 a 5 días(15%) 
+              </label>
               <br>
-              <input type="radio" value="Express 5 a 8 días(7%)"> Express 5 a 8 días(7%) 
+              <label class="checkbox-inline">
+                <input onclick="multiplicar()" type="radio" name="envio" value="0.07" id="express" required> Express 5 a 8 días(7%) 
+              </label>
               <br>
-              <input type="radio" value="Standard 12 a 15 días(5%)"> Standard 12 a 15 días(5%)  
-            </p>
+              <label class="checkbox-inline">
+                <input onclick="multiplicar()" type="radio" name="envio" value="0.05" id="standard" required> Standard 12 a 15 días(5%)  
+              </label>
+            </div>
           </div>
           <h4>Dirección de envío</h4>
-          <form class="row row-cols-lg-2">
+          <div class="row row-cols-lg-2">
            <div class="form-group col">
              <label for="calle">Calle</label>
-             <input type="text" class="form-control" style="width:525px"> 
+             <input type="text" class="form-control" style="width:525px" required> 
+             <div class="invalid-feedback">
+              Ingresa una calle
+             </div>
            </div>
            <div class="form-group col">
              <label for="numero">Número</label>
-             <input type="text" class="form-control" style="width:250px">
+             <input type="text" class="form-control" style="width:250px" required>
+             <div class="invalid-feedback">
+               Ingresa un número
+             </div>
            </div>  
            <div class="form-group col">
              <label for="esquina">Esquina</label>
-             <input type="text" class="form-control" style="width:525px">
-           </form>
+             <input type="text" class="form-control" style="width:525px" required>
+             <div class="invalid-feedback">
+               Ingresa una esquina 
+            </div>
+            </div>
           </div>
         </div>
         <hr>
-      </div>
-      <!-- <div class="row">
-          <h3 class="text-center my-3">Carritos de Compras</h3>
         <div class="row">
-          <h4>Articulos a comprar</h4>
+           <div class="row">
+             <h4>Costos</h4>
+             <div class="border row row-cols-2">
+               <h5 class="col mt-3">Subtotal</h5> 
+               <p class="col d-flex flex-row-reverse mt-3" id="subtotal2"></p>
+               <p class="col">Costo unitario del producto por cantidad</p>
+             </div>
+             <div class="border row row-cols-2">
+              <h5 class="col mt-3">Costo de envío</h5> 
+              <p class="col d-flex flex-row-reverse mt-3" id="costo"></p>
+              <p class="col">Según el tipo de envío</p>
+            </div>
+            <div class="border row row-cols-2">
+              <h5 class="col mt-3"><b>Total($)</b></h5> 
+              <b class="col d-flex flex-row-reverse mt-3" id="total"></b>
+            </div>
+           </div>
         </div>
-        <div class="col-11 d-flex flex-row justify-content-evenly">
-          <span class="text-muted">hi</span>
-          <span><strong>Nombre</strong></span> 
-          <span><strong>Costo</strong></span>
-          <span><strong>Cantidad</strong></span>
-          <span><strong>SubTotal</strong></span>
-        </div>
+        <br>
         <hr>
-        <div class="col-10 d-flex flex-row justify-content-around">
-          <img class="img-fluid d-flex" src="https://dummyimage.com/100x100" alt="">
-          <span class="d-flex align-content-center flex-wrap">Producto</span>
-          <span class="d-flex align-content-center flex-wrap">Precio</span>
-          <span class="d-flex align-content-center flex-wrap"><input size="3px" type="text" name="Unidades" id="unidades" placeholder="Unidad"></span>
-          <span class="d-flex align-content-center flex-wrap">SubTotal</span>
+        <div class="row">
+          <div class="row">
+            <h4>Forma de pago</h4>
+            <div class="">
+              <span id="tipo-pago">No ha seleccionado </span>
+                    
+              <div class="modal fade" id="exampleModalToggle" aria-hidden="true" data-bs-backdrop="static" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalToggleLabel"><b>Forma de pago</b></h5>
+                    
+                    </div>
+                    <div class="modal-body">
+                      <input type="radio" id="credito" name="pagos" required>  
+                      <label for="credito">Tarjeta de crédito</label>
+                      <hr>
+                      <input type="radio" id="debito" name="pagos" required>
+                      <label for="debito">Transferencia bancaria</label>
+                    </div>
+                    <div class="modal-footer">
+                      <a role="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="pagos()">Siguiente</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalToggleLabel2"><b>Forma de pago</b></h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div id="pago">
+                      
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-dismiss="modal">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a class="" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="seleccionar">Seleccionar</a>
+              <div id="sel-msg">
+                <div id="seleccion">
+                 
+               </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <br>
+        <div class="row col-12">
+          <button type="submit" class="btn btn-primary" id="fin-compra" onclick="validarPago()">Finalizar compra</button>
         </div>
-      </div> -->
+      </form>
     </div>
   </main>
   <footer class="text-muted">
@@ -111,6 +183,16 @@
       <div></div>
     </div>
   </div>
+
+  <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+    <p>¡Has comprado con éxito!</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div id="success-msg">
+    
+  </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
