@@ -62,16 +62,12 @@ document.addEventListener("DOMContentLoaded", async function(){
   const navbar = document.querySelector("#navBar")
   if(Usuario){ 
     navbar.innerHTML += getHTML(); 
+  } else {
+    location.href = "index.html";
   }
-    noUsername()  
-  })
+  
+})
 
 function deleteUsername(){
   localStorage.removeItem("Usuario")
-}
-
-function noUsername(){
-  if (!Usuario){
-    location.href = "index.html";
-  }
 }
