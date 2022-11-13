@@ -34,7 +34,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav w-100 justify-content-between" id="navBar">
           <li class="nav-item">
             <a class="nav-link" href="display.html">Inicio</a>
           </li>
@@ -51,8 +51,51 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="mt-3">
+        <h3> Perfil </h3>
+        <hr>
+        <form class="needs-validation" novalidate>
+          <div class="row row-cols-2">
+            <div class="col mb-2 form-group">
+              <label for="pri-nom">Nombre<b>*</b></label>
+               <input type="text" class="form-control" id="pri-nom" value="" required>
+               <div class="invalid-feedback">
+                Ingresa un nombre 
+             </div>
+            </div>
+            <div class="col mb-2 form-group">
+              <label for="seg-nom">Segundo Nombre</label>
+               <input type="text" class="form-control" id="seg-nom" value="">
+            </div>
+            <div class="col mb-2 form-group">
+              <label for="pri-ape">Apellido<b>*</b></label>
+               <input type="text" class="form-control" id="pri-ape" value="" required>
+               <div class="invalid-feedback">
+                Ingresa un apellido 
+             </div>
+            </div>
+            <div class="col mb-2 form-group">
+              <label for="seg-ape">Segundo Apellido</label>
+               <input type="text" class="form-control" id="seg-ape" value="">
+            </div> 
+            <div class="col mb-2 form-group">
+              <label for="email">E-mail<b>*</b></label>
+               <input type="text" class="form-control" id="email" value="" required>
+               <div class="invalid-feedback">
+                Ingresa un e-mail 
+             </div>
+            </div> 
+            <div class="col mb-2 form-group">
+              <label for="contacto">Teléfono de contacto</label>
+               <input type="text" class="form-control" id="contacto" value="">
+            </div> 
+          </div>
+          <br>
+          <br>
+          <br>
+          <hr>
+          <button class="btn btn-primary" type="submit">Guardar cambios</button>
+        </form>
       </div>
     </div>
   </main>
